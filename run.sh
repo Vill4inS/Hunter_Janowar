@@ -4,6 +4,7 @@ url=$1
 figlet -f slant " Vill4!n'S Team"
 echo "                        #| Vill4!n'S Team's Bug Hunting T00ls      |#"
 echo "                        #| Every Villain is a Hero in his Own Mind |#"
+echo "                        #| Script Name : Hunter Janowar            |#"
 echo "                        #| Coded by MR Villain || Version: @1.0    |#"
 echo ""
 echo ""
@@ -111,3 +112,6 @@ rm $url/recon/wayback/extensions/aspx1.txt
 echo "[+] Running gowitness against all compiled domains...."
 gowitness file -s $url/recon/httprobe/alive.txt -d $url/recon/gowitness
  
+echo ""
+echo ""
+echo "Thanks for Using M3 :)) "
