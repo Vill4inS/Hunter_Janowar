@@ -26,7 +26,7 @@ Step2: ./run.sh [Target URL]
 
 # Now you can see such pages
 
-![Capture](https://user-images.githubusercontent.com/64704348/81558307-4ef49d80-9342-11ea-8ae9-7e079d0671e4.JPG)
+![Capture](https://user-images.githubusercontent.com/64704348/81594828-5d5cac80-9376-11ea-9cea-fc366cf77a3b.JPG)
 
 
 # Enjoy The SCRIPT :))
