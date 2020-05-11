@@ -110,3 +110,4 @@ rm $url/recon/wayback/extensions/aspx1.txt
 
 echo "[+] Running gowitness against all compiled domains...."
 gowitness file -s $url/recon/httprobe/alive.txt -d $url/recon/gowitness
+ 
