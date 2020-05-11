@@ -3,7 +3,7 @@
 apt update
 apt-get install -y figlet
 apt-get install nmap
-
+ 
 
 go get -u github.com/tomnomnom/assetfinder
 go get -v github.com/OWASP/Amass/v3/...
