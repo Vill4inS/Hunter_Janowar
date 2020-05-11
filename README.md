@@ -34,6 +34,6 @@ If you have find any problem & fix any bug . Please Contact me.
 
 Mail to: vill4insteam@gmail.com
 
-Special Thanks [+] Heath Adams
+Special Thanks [+] Heath Adams & J4ck 5P4RR0w
 
 CopyRight © Vill4!n'S Team
