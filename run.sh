@@ -114,4 +114,6 @@ gowitness file -s $url/recon/httprobe/alive.txt -d $url/recon/gowitness
  
 echo ""
 echo ""
-echo "Thanks for Using M3 :)) " 
+echo "                        #| Thanks for Using M3                     |#"
+echo "                        #| Special Thanks [+] Heath Adams          |#"
+echo "                        #| CopyRight © Vill4!n'S Team              |#"
