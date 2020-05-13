@@ -4,6 +4,8 @@ Vill4!n'S Team's Bug Hunting T00ls
 # Requirement
 ==> GO Programming Language
 
+==> EyeWitness (https://github.com/FortyNorthSecurity/EyeWitness/)
+
 # How to Install:
 First go your Ternimal. Then
 
