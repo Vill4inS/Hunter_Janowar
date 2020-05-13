@@ -4,6 +4,8 @@ Vill4!n'S Team's Bug Hunting T00ls
 # Requirement
 ==> GO Programming Language
 
+==> Linux ( If there is, it is good )
+
 # How to Install:
 First go your Ternimal. Then
 
