@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/bin/bash	
 url=$1
 figlet -f slant " Vill4!n'S Team"
 echo "                        #| Vill4!n'S Team's Bug Hunting T00ls      |#"
@@ -11,13 +10,12 @@ echo ""
 if [ ! -d "$url" ];then
 	mkdir $url
 fi
-
 if [ ! -d "$url/recon" ];then
 	mkdir $url/recon
 fi
-	if [ ! -d '$url/recon/gowitness' ];then
-		mkdir $url/recon/gowitness
-	fi
+if [ ! -d '$url/recon/eyewitness' ];then
+        mkdir $url/recon/eyewitness
+fi
 if [ ! -d "$url/recon/scans" ];then
 	mkdir $url/recon/scans
 fi
@@ -43,23 +41,22 @@ if [ ! -f "$url/recon/final.txt" ];then
 	touch $url/recon/final.txt
 fi
 
+echo "[+] Harvesting subdomains with assetfinder..."
+assetfinder $url >> $url/recon/assets.txt
+cat $url/recon/assets.txt | grep $1 >> $url/recon/final.txt
+rm $url/recon/assets.txt
 
-echo "[+] Harvesting subdomain with assetfinder....."
-assetfinder $url >> $url/recon/asset.txt
-cat $url/recon/asset.txt | grep $1 >> $url/recon/final.txt
-rm $url/recon/asset.txt
+echo "[+] Double checking for subdomains with amass..."
+amass enum -d $url >> $url/recon/f.txt
+sort -u $url/recon/f.txt >> $url/recon/final.txt
+rm $url/recon/f.txt
 
-echo "[+] Double checking for subdomain with Amass...."
-amass enum -d $url >> $url/recon/amass.txt
-sort -u $url/recon/amass.txt >> $url/recon/final.txt
-rm $url/recon/amass.txt
-
-echo "[+] Probing for alive domains...."
-cat $url/recon/final.txt | sort -u | httprobe -s -p https:443 | sed 's/https\?:\/\///' | tr -d ':443' | tee -a $url/recon/httprobe/a.txt
+echo "[+] Probing for alive domains..."
+cat $url/recon/final.txt | sort -u | httprobe -s -p https:443 | sed 's/https\?:\/\///' | tr -d ':443' >> $url/recon/httprobe/a.txt
 sort -u $url/recon/httprobe/a.txt > $url/recon/httprobe/alive.txt
 rm $url/recon/httprobe/a.txt
 
-echo "[+] Checking for possible subdomain takeover...."
+echo "[+] Checking for possible subdomain takeover..."
 
 if [ ! -f "$url/recon/potential_takeovers/potential_takeovers.txt" ];then
 	touch $url/recon/potential_takeovers/potential_takeovers.txt
@@ -67,21 +64,21 @@ fi
 
 subjack -w $url/recon/final.txt -t 100 -timeout 30 -ssl -c ~/go/src/github.com/haccer/subjack/fingerprints.json -v 3 -o $url/recon/potential_takeovers/potential_takeovers.txt
 
-echo "[+] Scanning for open ports...."
+echo "[+] Scanning for open ports..."
 nmap -iL $url/recon/httprobe/alive.txt -T4 -oA $url/recon/scans/scanned.txt
 
-echo "[+] Scraping wayback data...."
+echo "[+] Scraping wayback data..."
 cat $url/recon/final.txt | waybackurls >> $url/recon/wayback/wayback_output.txt
 sort -u $url/recon/wayback/wayback_output.txt
 
 echo "[+] Pulling and compiling all possible params found in wayback data..."
-cat -u $url/recon/wayback/wayback_output.txt | grep '?*=' | cut -d '=' -f 1 | sort -u >> $url/recon/wayback/params/wayback_params.txt
+cat $url/recon/wayback/wayback_output.txt | grep '?*=' | cut -d '=' -f 1 | sort -u >> $url/recon/wayback/params/wayback_params.txt
 for line in $(cat $url/recon/wayback/params/wayback_params.txt);do echo $line'=';done
 
-echo "[+] Pulling and compiling js/php/aspx/jsp/json files from wayback output....."
+echo "[+] Pulling and compiling js/php/aspx/jsp/json files from wayback output..."
 for line in $(cat $url/recon/wayback/wayback_output.txt);do
 	ext="${line##*.}"
-	if [[ "$ext" == "js" ]];then
+	if [[ "$ext" == "js" ]]; then
 		echo $line >> $url/recon/wayback/extensions/js1.txt
 		sort -u $url/recon/wayback/extensions/js1.txt >> $url/recon/wayback/extensions/js.txt
 	fi
@@ -108,10 +105,9 @@ rm $url/recon/wayback/extensions/jsp1.txt
 rm $url/recon/wayback/extensions/json1.txt
 rm $url/recon/wayback/extensions/php1.txt
 rm $url/recon/wayback/extensions/aspx1.txt
+echo "[+] Running eyewitness against all compiled domains..."
+python3 EyeWitness/EyeWitness.py --web -f $url/recon/httprobe/alive.txt -d $url/recon/eyewitness --resolve
 
-echo "[+] Running gowitness against all compiled domains...."
-gowitness file -s $url/recon/httprobe/alive.txt -d $url/recon/gowitness
- 
 echo ""
 echo ""
 echo "                        #| Thanks for Using M3                     |#"
