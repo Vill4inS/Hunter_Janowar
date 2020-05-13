@@ -10,4 +10,4 @@ go get -v github.com/OWASP/Amass/v3/...
 go get -u github.com/tomnomnom/httprobe
 go get github.com/haccer/subjack
 go get github.com/tomnomnom/waybackurls
-go get -u github.com/sensepost/gowitness
+
