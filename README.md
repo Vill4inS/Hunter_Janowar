@@ -15,12 +15,12 @@ Step3: cdmod +x install.sh
 
 Step4: ./install.sh
 
+Step5: chmod +x run.sh
+
 # Congratulations
 Your installation has been completed
 
 # How to Usage:
-
-Step1: chmod +x run.sh
 
 Step2: ./run.sh [Target URL]
 
