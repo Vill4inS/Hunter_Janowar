@@ -1,7 +1,7 @@
 #!/bin/bash
 
 url=$1
-figlet -f big " Vill4!n'S Team"
+figlet -f slant " Vill4!n'S Team"
 echo "                        #| Vill4!n'S Team's Bug Hunting T00ls      |#"
 echo "                        #| Every Villain is a Hero in his Own Mind |#"
 echo "                        #| Script Name : Hunter Janowar            |#"
