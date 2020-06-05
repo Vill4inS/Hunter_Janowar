@@ -17,14 +17,14 @@ Step3: cdmod +x install.sh
 
 Step4: ./install.sh
 
-Step5: chmod +x run.sh
+Step5: chmod +x janowar.sh
 
 # Congratulations
 Your installation has been completed
 
 # How to Usage:
 
-Step1: ./run.sh [Target URL]
+Step1: ./janowar.sh [Target URL]
 
 # Now you can see such pages
 
@@ -45,10 +45,10 @@ If you have trouble installing the Install.sh file, Then you have to manually in
 
 => Nmap ( https://github.com/nmap/nmap )
 
-=> EyeWitness ( https://github.com/FortyNorthSecurity/EyeWitness )
+=> GoWitness ( https://github.com/sensepost/gowitness )
 
 # Enjoy The SCRIPT :))
-If you have find any problem & fix any bug . Please Contact me.
+If you have find any problem & fix any bug. Please Contact us.
 
 Mail to: vill4insteam@gmail.com
 
