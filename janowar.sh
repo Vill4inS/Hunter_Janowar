@@ -13,8 +13,8 @@ fi
 if [ ! -d "$url/recon" ];then
 	mkdir $url/recon
 fi
-if [ ! -d '$url/recon/eyewitness' ];then
-        mkdir $url/recon/eyewitness
+if [ ! -d '$url/recon/gowitness' ];then
+	mkdir $url/recon/gowitness
 fi
 if [ ! -d "$url/recon/scans" ];then
 	mkdir $url/recon/scans
@@ -105,8 +105,8 @@ rm $url/recon/wayback/extensions/jsp1.txt
 rm $url/recon/wayback/extensions/json1.txt
 rm $url/recon/wayback/extensions/php1.txt
 rm $url/recon/wayback/extensions/aspx1.txt
-echo "[+] Running eyewitness against all compiled domains..."
-python3 EyeWitness/EyeWitness.py --web -f $url/recon/httprobe/alive.txt -d $url/recon/eyewitness --resolve
+echo "[+] Running gowitness against all compiled domains...."
+gowitness file -s $url/recon/httprobe/alive.txt -d $url/recon/gowitness
 
 echo ""
 echo ""
