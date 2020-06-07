@@ -10,8 +10,8 @@ echo "#====================================================================#"
 echo " [*] Installing Essential Tools..."
 echo " [*] Please Wait  "
 apt-get update -y &&
-echo " [*] Installing Eyewitness... "
-apt-get install eyewitness -y 
+echo " [*] Installing GoWitness... "
+go get -u github.com/sensepost/gowitness
 echo " [*] Installing Assetfinder... "
 go get -u github.com/tomnomnom/assetfinder 
 echo " [*] Installing Amass... "
@@ -30,4 +30,4 @@ source ~/.bash_profile
 #go env -w GOPATH=$HOME/go
 
 echo " [*] Installation Done "
-echo " [*] ./Paece " 
+echo " [*] ./Peace " 
