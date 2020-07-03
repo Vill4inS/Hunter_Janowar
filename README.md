@@ -13,7 +13,7 @@ Step1: git clone https://github.com/Vill4inS/Hunter_Janowar.git
 
 Step2: cd Hunter_Janowar
 
-Step3: cdmod +x install.sh
+Step3: chmod +x install.sh
 
 Step4: ./install.sh
 
